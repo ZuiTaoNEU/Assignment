@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package UI;
+import Bussiness.Address;
+import Bussiness.Person;
+import Bussiness.PersonDirectory;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +17,10 @@ public class AddPersonPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddPersonPanel
      */
-    public AddPersonPanel() {
+    PersonDirectory Directory; 
+    public AddPersonPanel(PersonDirectory Directory) {
         initComponents();
+        this.Directory = Directory;
     }
 
     /**
@@ -34,6 +40,17 @@ public class AddPersonPanel extends javax.swing.JPanel {
         txtSSN = new javax.swing.JTextField();
         txtLN = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtWAddress = new javax.swing.JTextField();
+        txtWUnit = new javax.swing.JTextField();
+        txtHCIty = new javax.swing.JTextField();
+        txtHState = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtHUnit = new javax.swing.JTextField();
+        txtHAddress = new javax.swing.JTextField();
+        txtWCIty = new javax.swing.JTextField();
+        txtWState = new javax.swing.JTextField();
+        btnCreatePerson = new javax.swing.JButton();
 
         jLabel1.setText("Last Name");
 
@@ -49,13 +66,72 @@ public class AddPersonPanel extends javax.swing.JPanel {
 
         jLabel4.setText("License Number");
 
+        jLabel5.setText("Work");
+
+        txtWAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWAddressActionPerformed(evt);
+            }
+        });
+
+        txtWUnit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWUnitActionPerformed(evt);
+            }
+        });
+
+        txtHCIty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHCItyActionPerformed(evt);
+            }
+        });
+
+        txtHState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHStateActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Home");
+
+        txtHUnit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHUnitActionPerformed(evt);
+            }
+        });
+
+        txtHAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHAddressActionPerformed(evt);
+            }
+        });
+
+        txtWCIty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWCItyActionPerformed(evt);
+            }
+        });
+
+        txtWState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWStateActionPerformed(evt);
+            }
+        });
+
+        btnCreatePerson.setText("Create");
+        btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreatePersonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -64,19 +140,46 @@ public class AddPersonPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(0, 4, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(29, 29, 29)))
+                                    .addGap(40, 40, 40))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtWAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtHAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtWCIty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHCIty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(44, 44, 44)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtLN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(519, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtHState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtLN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtWUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtWState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtHUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                                .addComponent(btnCreatePerson)
+                                .addGap(115, 115, 115))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +200,28 @@ public class AddPersonPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(421, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtWAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtWCIty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreatePerson))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHCIty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,15 +229,96 @@ public class AddPersonPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFNameActionPerformed
 
+    private void txtWAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWAddressActionPerformed
+
+    private void txtWUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWUnitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWUnitActionPerformed
+
+    private void txtHCItyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHCItyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHCItyActionPerformed
+
+    private void txtHStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHStateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHStateActionPerformed
+
+    private void txtHUnitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHUnitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHUnitActionPerformed
+
+    private void txtHAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHAddressActionPerformed
+
+    private void txtWCItyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWCItyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWCItyActionPerformed
+
+    private void txtWStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWStateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWStateActionPerformed
+
+    private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
+        // TODO add your handling code here:
+        String firstName = txtFName.getText();
+        String lastName = txtLName.getText();
+        String ssn = txtSSN.getText();
+        String licenseNumber = txtLN.getText();
+        
+        String homeAddress = txtHAddress.getText();
+        String homeUnit = txtHUnit.getText();
+        String homeCity = txtHCIty.getText();
+        String homeState = txtHState.getText();
+        
+        Address homeAddr = new Address(homeAddress, homeUnit, homeCity, homeState);
+        
+        String workAddress = txtWAddress.getText();
+        String workUnit = txtWUnit.getText();
+        String workCity = txtWCIty.getText();
+        String workState = txtWState.getText();
+        
+        Address workAddr = new Address(workAddress, workUnit, workCity, workState);
+        Person person = new Person(firstName, lastName, ssn, licenseNumber, workAddr, homeAddr);
+        
+        PersonDirectory.addPerson(person);
+        JOptionPane.showMessageDialog(this, "Person added successfully!");
+        
+         txtFName.setText("");
+         txtLName.setText("");
+         txtSSN.setText("");
+         txtLN.setText("");
+         txtHAddress.setText("");
+         txtHUnit.setText("");
+         txtHCIty.setText("");
+         txtHState.setText("");
+        
+        
+        
+    }//GEN-LAST:event_btnCreatePersonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreatePerson;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtFName;
+    private javax.swing.JTextField txtHAddress;
+    private javax.swing.JTextField txtHCIty;
+    private javax.swing.JTextField txtHState;
+    private javax.swing.JTextField txtHUnit;
     private javax.swing.JTextField txtLN;
     private javax.swing.JTextField txtLName;
     private javax.swing.JTextField txtSSN;
+    private javax.swing.JTextField txtWAddress;
+    private javax.swing.JTextField txtWCIty;
+    private javax.swing.JTextField txtWState;
+    private javax.swing.JTextField txtWUnit;
     // End of variables declaration//GEN-END:variables
 }
